@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BOOHighSchool Site</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+  /* Base Styles */
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #e6f7ff;
+    color: black;
+    overflow-x: hidden;
+  }
+
+  @font-face {
+    font-family: 'Sisteron';
+    src: url('fonts/Sisteron-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .elegant-title {
+    font-family: 'Sisteron', serif;
+    font-size: 32px;
+    color: #333;
+    letter-spacing: 1px;
+  }
+
+  /* Navbar */
+  .navbar {
+    background-color: #add8e6;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    z-index: 1001;
+  }
+
+  .branding {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    height: 60px;
+    padding: 1px;
+  }
+
+  .school-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    margin-left: 4px;
+  }
+
+  .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    color: black;
+  }
+
+  .nav-links {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #add8e6;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 1000;
+  }
+
+  .nav-links.show {
+    width: 200px;
+  }
+
+  .nav-links a {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
+    transition: 0.2s;
+  }
+
+  .nav-links a:hover {
+    background-color: #87ceeb;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: white;
+    background-color: #333;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+.announcement-bar {
+  background-color: #007acc;
+  color: white;
+  font-weight: bold;
+  overflow: hidden;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  padding-left: 10px;
+}
+
+.announcement-track {
+  display: inline-block;
+  animation: scroll-left 20s linear infinite;
+}
+
+.announcement-track span {
+  padding-right: 50px;
+  display: inline-block;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.three-column-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  align-items: flex-start;
+}
+
+.poll-box,
+.quote-box {
+  flex: 1 1 25%;
+  background-color: #fff9c4;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}
+
+  /* Carousel */
+  .carousel-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .carousel-container img {
+    width: 80%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s ease;
+  }
+
+  .carousel-container img:hover {
+    transform: scale(1.02);
+  }
+
+.poll-box h2,
+.quote-box h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.quote-box blockquote {
+  font-style: italic;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.poll-box form button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .three-column-layout {
+    flex-direction: column;
+  }
+
+  .poll-box,
+  .carousel-box,
+  .quote-box {
+    flex: 1 1 100%;
+  }
+}
+  /* Sections */
+  .section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .section h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .section p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  /* Interaction */
+  .interaction form {
+    margin-top: 15px;
+  }
+
+  .interaction input {
+    padding: 10px;
+    width: 250px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin: 5px;
+  }
+
+  .interaction button {
+    padding: 10px 20px;
+    background-color: #e6f7ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  /* Social Embed */
+  .social iframe {
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Host Card */
+  .host-card {
+    width: 220px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.3s;
+  }
+
+  .host-card img {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  /* Announcement Bar */
+  .announcement-bar {
+    background-color: #007acc;
+    color: white;
+    font-weight: bold;
+    overflow: hidden;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .announcement-track {
+    display: flex;
+    animation: scroll-left 20s linear infinite;
+  }
+
+  .announcement-track span {
+    padding-right: 50px;
+  }
+
+  @keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+  
+  /* Footer */
+footer {
+  background-color: #add8e6; /* Light blue background */
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 40px;
+  color: #000;
+}
+
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    .carousel-container img {
+      max-height: 400px;
+    }
+
+    .poll-quote-inner {
+      flex-direction: column;
+    }
+
+    .poll-quote-box {
+      flex: 1 1 100%;
+    }
+
+    .poll-quote-box h2.elegant-title {
+      font-size: 22px;
+    }
+
+    .poll-quote-box blockquote {
+      font-size: 18px;
+    }
+    
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  background-color: #add8e6;
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+  color: #000;
+  margin-top: auto;
+}
+</style>
+</head>
+<body>
+
+ <!-- Announcement Bar -->
+<div class="announcement-bar">
+  <div class="announcement-track">
+      <span>💬 DM us your questions for the next Q&A segment! &nbsp;&nbsp;&nbsp;</span>
+ <span>📣 Shoutout to Online 10-3! &nbsp;&nbsp;&nbsp;</span>
+  <span>📢 New episode drops Friday at 5PM! Don’t miss it! &nbsp;&nbsp;&nbsp;</span>
+<span>📸 Submit your best school photo for a chance to be featured! &nbsp;&nbsp;&nbsp;</span>
+  </div>
+</div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="branding">
+      <img src="Logo.png" alt="Logo" class="logo">
+      <span class="school-name">BOOHighSchool</span>
+    </div>
+    <div class="menu-icon" id="menuIcon">☰</div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="nav-links" id="navLinks">
+    <span class="close-btn" id="closeBtn">✖</span>
+  
+ <a href="file:///C:/Users/Clouiey/OneDrive/%E5%9B%BE%E7%89%87/Desktop/CLOUIEY/LL-IPBA/index.html.html">Home</a>
+   
+ <a href="file:///C:/Users/Clouiey/OneDrive/%E5%9B%BE%E7%89%87/Desktop/CLOUIEY/LL-IPBA/Stream%20Outline.html">Stream Outline</a>
+ 
+   <a href="file:///C:/Users/Clouiey/OneDrive/%E5%9B%BE%E7%89%87/Desktop/CLOUIEY/LL-IPBA/Promotional%20Outline.html">Promotional Outline</a>
+  
+  </div>
+
+ <!-- Hero Banner -->
+  <section style="background: linear-gradient(to right, #87ceeb, #e6f7ff); padding: 40px 20px; text-align: center;">
+    <h1 style="font-size: 50px; font-family: 'Playfair Display', serif;">Welcome to BOOHighSchool Talkshow</h1>
+    <p style="font-family: 'Comic Sans MS', 'Comic Sans', cursive; font-size: 25px;">
+  Real voices. Real stories. Real fun.
+</p>
+<a href="#contact" style="background-color: #007acc; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Get Involved</a>
+  </section>
+
+<section class="three-column-layout">
+  <div class="poll-box">
+    <h2>🗳️ Poll of the Week</h2>
+    <p>Which topic should we cover next?</p>
+    <form>
+      <label><input type="radio" name="poll"> School Myths</label><br><br>
+      <label><input type="radio" name="poll"> Teachers’ Secrets</label><br><br>
+      <label><input type="radio" name="poll"> Canteen Confessions</label><br><br>
+      <button type="submit">Vote</button>
+    </form>
+  </div>
+
+<!-- Image Section -->
+
+  <div class="carousel-container">
+    <img src="TALKSHOW FINAL.png" alt="Talkshow Poster">
+  </div>
+
+  <div class="quote-box">
+    <h2>💬 Quote of the Week</h2>
+    <blockquote>“Even the quietest voice can spark the loudest change.”</blockquote>
+    <p>— Episode 3, BOOHighSchool Talkshow</p>
+  </div>
+</section>
+ 
+
+  <!-- About the Show -->
+  <section class="section about" style="background-color: #fff9c4; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 30px;">
+ <h2 class="elegant-title">About the Show</h2>
+   <p style="font-family: 'Comic Sans MS', 'Comic Sans', cursive; font-size: 22px; line-height: 1.8; max-width: 800px; margin: auto;">
+  <strong>BOOHighSchool Talkshow</strong> is a student-led platform where we explore real stories, trending topics, and school life through honest conversations. Whether it’s laughter, learning, or life lessons — we talk about it all. Tune in for bold voices, fresh takes, and unforgettable moments!
+</p>
+  </section>
+
+
+  <!-- Fan Interaction -->
+  <section class="section interaction" id="contact">
+ <h2 class="elegant-title">💬 Talk to Us </h2>
+    <form action="https://formspree.io/f/xrbrbakb" method="POST">
+      <input type="text" name="message" placeholder="Your question or message" required>
+      <input type="email" name="email" placeholder="Your email (optional)">
+      <button type="submit">Send</button>
+    </form>
+    <p style="margin-top:10px; font-size:14px;">We'll get back to you soon!</p>
+  </section>
+
+<!-- Footer -->
+  <footer>
+    <p><strong>BOOHighSchool Talkshow</strong> &copy; 2025</p>
+    <p>Follow us on 
+      <a href="https://www.facebook.com/profile.php?id=61583281319577" target="_blank" rel="noopener noreferrer">Facebook</a>, 
+      <a href="https://www.instagram.com/boo.highschool/" target="_blank" rel="noopener noreferrer">Instagram</a>, 
+      <a href="https://www.youtube.com/@boo.highschool" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </p>
+    <p>Contact: <a href="mailto:info@boohighschool.com">info@boohighschool.com</a></p>
+  </footer>
+
+  <!-- Sidebar Toggle Script -->
+  <script>
+    const menuIcon = document.getElementById("menuIcon");
+    const closeBtn = document.getElementById("closeBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuIcon.addEventListener("click", () => {
+      navLinks.classList.add("show");
+      menuIcon.style.display = "none";
+    });
+
+    closeBtn.addEventListener("click", () => {
+      navLinks.classList.remove("show");
+      menuIcon.style.display = "block";
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove("show");
+        menuIcon.style.display = "block";
+      });
+    });
+  </script>
+
+</body>
+</html>
