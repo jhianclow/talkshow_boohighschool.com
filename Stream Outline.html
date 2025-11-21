@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BOOHighSchool Site</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #e6f7ff;
+      color: black;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #add8e6;
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      z-index: 1001;
+    }
+
+    .branding {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 60px;
+      padding: 1px;
+    }
+
+    .school-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      font-weight: bold;
+      color: black;
+      margin-left: 4px;
+    }
+
+    .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+      padding: 5px;
+      color: black;
+    }
+
+    /* Sidebar */
+    .nav-links {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #add8e6;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 1000;
+    }
+
+    .nav-links.show {
+      width: 200px;
+    }
+
+    .nav-links a {
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: black;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      background-color: #87ceeb;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      color: white;
+      background-color: #333;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    /* Stream Outline Table */
+    .stream-outline {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+ background-image: url('bg logo.png'); /* Replace with your actual image path */
+  background-size: cover; /* Ensures the image covers the entire table */
+  background-repeat: no-repeat;
+  background-position: center;
+
+    }
+
+    .stream-outline h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #FFFFFF;
+    }
+
+    .stream-outline table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 16px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .stream-outline th,
+    .stream-outline td {
+      padding: 12px 16px;
+      border: 1px solid #d0e7f9;
+      text-align: left;
+    }
+
+    .stream-outline thead {
+      background-color: #fff9c4;
+      color: #000;
+    }
+
+    .stream-outline tbody tr:nth-child(even) {
+      background-color: #f0faff;
+    }
+
+    .stream-outline tbody tr:hover {
+      background-color: #e0f4ff;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #add8e6;
+      padding: 20px;
+      text-align: center;
+      font-size: 16px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: black;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="branding">
+      <img src="Logo.png" alt="Logo" class="logo">
+      <span class="school-name">BOOHighSchool</span>
+    </div>
+    <div class="menu-icon" id="menuIcon">☰</div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="nav-links" id="navLinks">
+    <span class="close-btn" id="closeBtn">✖</span>
+     <a href="file:///C:/Users/Clouiey/OneDrive/%E5%9B%BE%E7%89%87/Desktop/CLOUIEY/LL-IPBA/index.html.html">Home</a>
+   
+ <a href="file:///C:/Users/Clouiey/OneDrive/%E5%9B%BE%E7%89%87/Desktop/CLOUIEY/LL-IPBA/Stream%20Outline.html">Stream Outline</a>
+ 
+   <a href="file:///C:/Users/Clouiey/OneDrive/%E5%9B%BE%E7%89%87/Desktop/CLOUIEY/LL-IPBA/Promotional%20Outline.html">Promotional Outline</a>
+  
+  </div>
+
+
+  <!-- Stream Outline Section -->
+  <div class="stream-outline">
+    <h2>🎙️ Stream Outline</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Topic</th>
+          <th>Activity</th>
+          <th>Time Allotment</th>
+          <th>Screen</th>
+          <th>Audio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>5:00–5:15</td><td>Welcome</td><td>Greet viewers</td><td>15 mins</td><td>Overlay</td><td>Mic on</td></tr>
+        <tr><td>5:15–5:25</td><td>Academic Pressure</td><td>Panel discussion</td><td>10 mins</td><td>Split screen</td><td>Mic on</td></tr>
+        <tr><td>5:25–5:30</td><td>Viewer Interaction</td><td>Polls, shoutouts</td><td>5 mins</td><td>Chat overlay</td><td>Mic on</td></tr>
+        <tr><td>5:30–5:35</td><td>Break Time</td><td>Music</td><td>5 mins</td><td>Break screen</td><td>Music only</td></tr>
+        <tr><td>5:35–5:45</td><td>Mental Health</td><td>Tips, stories</td><td>10 mins</td><td>Slides + cam</td><td>Mic on</td></tr>
+        <tr><td>5:45–5:55</td><td>Q&A</td><td>Answer questions</td><td>10 mins</td><td>Split screen</td><td>Mic on</td></tr>
+        <tr><td>5:55–6:00</td><td>Wrap-Up</td><td>Recap</td><td>5 mins</td><td>Overlay</td><td>Mic on</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p><strong>BOOHighSchool Talkshow</strong> &copy; 2025</p>
+    <p>Follow us on 
+      <a href="https://www.facebook.com/profile.php?id=61583281319577" target="_blank" rel="noopener noreferrer">Facebook</a>, 
+      <a href="https://www.instagram.com/boo.highschool/" target="_blank" rel="noopener noreferrer">Instagram</a>, 
+      <a href="https://www.youtube.com/@boo.highschool" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </p>
+    <p>Contact: <a href="mailto:info@boohighschool.com">info@boohighschool.com</a></p>
+  </footer>
+
+  <!-- Sidebar Toggle Script -->
+  <script>
+    const menuIcon = document.getElementById("menuIcon");
+    const closeBtn = document.getElementById("closeBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuIcon.addEventListener("click", () => {
+      navLinks.classList.add("show");
+      menuIcon.style.display = "none";
+    });
+
+    closeBtn.addEventListener("click", () => {
+      navLinks.classList.remove("show");
+      menuIcon.style.display = "block";
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href.startsWith('#') || href.endsWith('.html')) {
+          navLinks.classList.remove("show");
+          menuIcon.style.display = "block";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

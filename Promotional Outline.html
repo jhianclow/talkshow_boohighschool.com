@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BOOHighSchool Promotional Outline</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #e6f7ff;
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      background-color: #add8e6;
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: relative;
+      z-index: 1001;
+    }
+
+    .branding {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 60px;
+      padding: 1px;
+    }
+
+    .school-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      font-weight: bold;
+      color: black;
+      margin-left: 4px;
+    }
+
+    .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+      padding: 5px;
+      color: black;
+    }
+
+    .nav-links {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #add8e6;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 1002;
+    }
+
+    .nav-links.show {
+  width: 200px;
+}
+
+    .nav-links a {
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: black;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      background-color: #87ceeb;
+    }
+
+     .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      color: white;
+      background-color: #333;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 24px;
+    }
+
+    h3 {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .phase {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f0faff;
+      border-left: 5px solid #add8e6;
+      border-radius: 6px;
+    }
+
+    .hashtag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .hashtag-list span {
+      background-color: #add8e6;
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #d0e7f9;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #add8e6;
+    }
+
+    .caption {
+      font-style: italic;
+      margin-top: 5px;
+    }
+
+.carousel {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background-color: white;
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.carousel-images img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0; /* Remove padding to avoid shrinking the image */
+  box-sizing: border-box; /* Ensures borders/padding don't overflow */
+}
+.carousel-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.carousel-buttons button {
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+}
+   /* Footer */
+    footer {
+      background-color: #add8e6;
+      padding: 20px;
+      text-align: center;
+      font-size: 16px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: black;
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="branding">
+      <img src="Logo.png" alt="Logo" class="logo">
+      <span class="school-name">BOOHighSchool</span>
+    </div>
+    <div class="menu-icon" id="menuIcon">☰</div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="nav-links" id="navLinks">
+    <span class="close-btn" id="closeBtn">✖</span>
+    <a href="file:///C:/Users/Clouiey/OneDrive/%E5%9B%BE%E7%89%87/Desktop/CLOUIEY/LL-IPBA/index.html.html">Home</a>
+   
+ <a href="file:///C:/Users/Clouiey/OneDrive/%E5%9B%BE%E7%89%87/Desktop/CLOUIEY/LL-IPBA/Stream%20Outline.html">Stream Outline</a>
+ 
+   <a href="file:///C:/Users/Clouiey/OneDrive/%E5%9B%BE%E7%89%87/Desktop/CLOUIEY/LL-IPBA/Promotional%20Outline.html">Promotional Outline</a>
+  
+  </div>
+
+
+  <!-- Promotional Content -->
+<!-- Promotional Content -->
+<div class="container">
+  <h1>📣 BOOHighSchool Promotional Plan</h1>
+
+  <h2>🎯 GOAL</h2>
+  <p>To promote <strong>BOOHighSchool</strong> as a relatable, engaging, and must-watch student talk show that tackles real issues like mental health, academic pressure, and social media trends.</p>
+
+  <div class="phase">
+    <h2>🧭 PHASE 1: Pre-Launch</h2>
+    <h3>1. Branding & Identity</h3>
+    <ul>
+      <li><strong>Logo & Poster Design:</strong> Bold fonts, school-themed icons (chalkboards, lockers, emojis, etc.)</li>
+      <li><strong>Tagline ideas:</strong> “BOOHighSchool: Real Talk That Hits Hard”</li>
+    </ul>
+
+   <h3>2. Countdown Graphics</h3>
+<div class="carousel">
+  <div class="carousel-images" id="carouselImages">
+    <img src="1.png" alt="3 Days Before">
+    <img src="2.png" alt="2 Days Before">
+    <img src="3.png" alt="1 Day Before">
+    <img src="4.png" alt="The Day">
+  </div>
+ <div class="carousel-buttons">
+  <button onclick="prevSlide()">❮</button>
+  <button onclick="nextSlide()">❯</button>
+</div>
+</div>
+
+    <h3>3. Social Media Setup</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Purpose</th>
+          <th>Content Ideas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Instagram</td>
+          <td>Visual branding, polls, reels</td>
+          <td>Posters, countdown, Q&A stickers, reels</td>
+        </tr>
+        <tr>
+          <td>Facebook</td>
+          <td>Event creation, stream link</td>
+          <td>Invite friends, post reminders, viewer shoutouts</td>
+        </tr>
+        <tr>
+          <td>YouTube</td>
+          <td>Stream replays, highlight reels</td>
+          <td>Recap videos</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4. Hashtag Strategy</h3>
+    <div class="hashtag-list">
+      <span>#BOOHighSchool</span>
+      <span>#StudentTalks</span>
+      <span>#HighSchoolUnfiltered</span>
+      <span>#MentalHealthMatters</span>
+      <span>#EpicFailHigh</span>
+      <span>#BooAndTell</span>
+    </div>
+  </div>
+
+  <div class="phase">
+    <h2>📡 PHASE 2: Day-of Promotion (Stream Day)</h2>
+    <h3>1. Final Push</h3>
+    <p class="caption">Caption: “We’re going live at 5 PM! Join the BOOHighSchool crew for real talk and good vibes”</p>
+    <p>Instagram Story: Countdown sticker + stream link</p>
+
+    <h3>2. Engage Early Viewers</h3>
+    <ul>
+      <li>Shoutouts for first 10 viewers</li>
+      <li>Ask: “What topic should we dive into first?”</li>
+      <li>Use live polls and chat prompts</li>
+    </ul>
+
+    <h3>3. Call to Action</h3>
+    <ul>
+      <li>“Tag a friend who needs this convo!”</li>
+      <li>“Share the stream and get a shoutout!”</li>
+    </ul>
+  </div>
+
+  <div class="phase">
+    <h2>🔁 PHASE 3: Post-Stream Momentum</h2>
+    <h3>1. Highlight Reel</h3>
+    <ul>
+      <li>Edit a 1-minute recap of best moments</li>
+      <li class="caption">Caption: “Missed BOOHighSchool? Here’s what went down…”</li>
+    </ul>
+
+    <h3>2. Viewer Shoutouts</h3>
+    <ul>
+      <li>Post screenshots or quotes from chat</li>
+      <li>Tag active viewers and thank them</li>
+    </ul>
+
+    <h3>3. Feedback Poll</h3>
+    <p>React-Poster</p>
+
+    <h3>4. Replay</h3>
+    <p>Upload full stream to YouTube</p>
+  </div>
+
+</div>
+
+ <!-- Footer -->
+  <footer>
+    <p><strong>BOOHighSchool Talkshow</strong> &copy; 2025</p>
+    <p>Follow us on 
+      <a href="https://www.facebook.com/profile.php?id=61583281319577" target="_blank" rel="noopener noreferrer">Facebook</a>, 
+      <a href="https://www.instagram.com/boo.highschool/" target="_blank" rel="noopener noreferrer">Instagram</a>, 
+      <a href="https://www.youtube.com/@boo.highschool" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </p>
+    <p>Contact: <a href="mailto:info@boohighschool.com">info@boohighschool.com</a></p>
+  </footer>
+
+<!-- Sidebar Toggle Script -->
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    const icon = document.getElementById("menuIcon");
+
+    // Toggle sidebar visibility
+    nav.classList.toggle("show");
+
+    // Toggle hamburger icon visibility
+    icon.style.display = nav.classList.contains("show") ? "none" : "block";
+  }
+
+  // Open sidebar when ☰ is clicked
+  document.getElementById("menuIcon").addEventListener("click", toggleMenu);
+
+  // Close sidebar when ✖ is clicked
+  document.getElementById("closeBtn").addEventListener("click", () => {
+    document.getElementById("navLinks").classList.remove("show");
+    document.getElementById("menuIcon").style.display = "block";
+  });
+
+  // Close sidebar when any link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById("navLinks").classList.remove("show");
+      document.getElementById("menuIcon").style.display = "block";
+    });
+  });
+</script>
+
+<!-- Carousel Script -->
+<script>
+let currentSlide = 0;
+  const images = document.getElementById("carouselImages");
+  const totalSlides = images.children.length;
+
+  function showSlide(index) {
+    const offset = -index * 100;
+    images.style.transform = `translateX(${offset}%)`;
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  // 👇 REMOVE auto-slide
+  // setInterval(nextSlide, 5000);
+</script></body>
+</html>
